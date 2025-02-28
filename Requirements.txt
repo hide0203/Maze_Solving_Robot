@@ -1,5 +1,3 @@
-Required Libraries
-
 NumPy → For matrix operations (representing the maze)
 Matplotlib → To display the maze and the solution path
 
