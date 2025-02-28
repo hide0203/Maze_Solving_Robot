@@ -2,6 +2,8 @@
 
 This is a **Python-based simulation** of a robot solving a maze using **BFS (Breadth-First Search)**. It visualizes the shortest path from start to goal.
 
+
+
 ##  Features
 -- Generates a random maze  
 -- Implements BFS algorithm to find the shortest path  
@@ -9,11 +11,15 @@ This is a **Python-based simulation** of a robot solving a maze using **BFS (Bre
 -- Easily extendable to real-world robots (Raspberry Pi, ROS)  
 
  
-## 📂 Folder Structure
+
+
+##  Folder Structure
 
 
 
-## 🚀 Installation & Usage
+
+
+##  Installation & Usage
 1. **Clone this repository**  
 ```sh
 git clone https://github.com/hide0203/Maze_Solving_Robot.git
