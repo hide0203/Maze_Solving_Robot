@@ -1,5 +1,2 @@
 NumPy
 Matplotlib
-
-
-pip install -r requirements.txt
