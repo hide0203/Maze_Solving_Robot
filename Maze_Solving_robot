@@ -1,0 +1,76 @@
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+from collections import deque
+
+# Define the maze as a 2D grid (0 = open path, 1 = wall)
+maze = np.array([
+    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 1, 0, 1, 1, 1, 1, 0],
+    [1, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 1, 1, 1, 0, 1, 1, 0],
+    [0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 1, 0]
+])
+
+# Define start and goal positions
+start = (0, 0)
+goal = (9, 9)
+
+# BFS Algorithm for Pathfinding
+def bfs(maze, start, goal):
+    rows, cols = maze.shape
+    queue = deque([(start, [start])])
+    visited = set()
+
+    while queue:
+        (x, y), path = queue.popleft()
+        
+        if (x, y) == goal:
+            return path  # Return the shortest path found
+        
+        # Check valid moves (up, down, left, right)
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            
+            if 0 <= nx < rows and 0 <= ny < cols and maze[nx, ny] == 0 and (nx, ny) not in visited:
+                queue.append(((nx, ny), path + [(nx, ny)]))
+                visited.add((nx, ny))
+
+    return None  # No path found
+
+# Solve the maze
+solution_path = bfs(maze, start, goal)
+
+# Visualizing the Maze and Solution Path
+def visualize_maze(maze, path):
+    maze_img = np.full((maze.shape[0], maze.shape[1], 3), 255, dtype=np.uint8)
+
+    # Draw walls
+    for i in range(maze.shape[0]):
+        for j in range(maze.shape[1]):
+            if maze[i, j] == 1:
+                maze_img[i, j] = [0, 0, 0]  # Black walls
+
+    # Draw path
+    for (x, y) in path:
+        maze_img[x, y] = [0, 255, 0]  # Green path
+
+    # Draw start and goal
+    maze_img[start] = [255, 0, 0]  # Red start
+    maze_img[goal] = [0, 0, 255]  # Blue goal
+
+    plt.imshow(maze_img)
+    plt.axis('off')
+    plt.show()
+
+# Show the result
+if solution_path:
+    print("Path found!")
+    visualize_maze(maze, solution_path)
+else:
+    print("No path found.")
