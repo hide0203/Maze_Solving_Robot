@@ -12,9 +12,9 @@ This is a **Python-based simulation** of a robot solving a maze using **BFS (Bre
 
 
 ##  Folder Structure
--  maze_solver.py      # Main Python script
--  README.md           # Project description
--  requirements.txt     # Dependencies list
+-  maze_solver.py      
+-  README.md           
+-  requirements.txt     
 
 
 
