@@ -3,19 +3,18 @@
 This is a **Python-based simulation** of a robot solving a maze using **BFS (Breadth-First Search)**. It visualizes the shortest path from start to goal.
 
 
-
 ##  Features
 -- Generates a random maze  
 -- Implements BFS algorithm to find the shortest path  
 -- Visualizes the robot's movement  
 -- Easily extendable to real-world robots (Raspberry Pi, ROS)  
 
- 
 
 
 ##  Folder Structure
-
-
+-  maze_solver.py      # Main Python script
+-  README.md           # Project description
+-  requirements.txt     # Dependencies list
 
 
 
