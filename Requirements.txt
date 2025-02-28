@@ -1,5 +1,5 @@
-NumPy → For matrix operations (representing the maze)
-Matplotlib → To display the maze and the solution path
+NumPy
+Matplotlib
 
 
 pip install -r requirements.txt
